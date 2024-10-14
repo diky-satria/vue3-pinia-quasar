@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div>
     <nav>
       <router-link to="/">Home</router-link> |
@@ -35,25 +35,14 @@ export default {
 };
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<style></style> -->
 
-nav {
-  padding: 30px;
-}
+<template>
+  <router-view />
+</template>
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+<script>
+export default {};
+</script>
 
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+<style></style>

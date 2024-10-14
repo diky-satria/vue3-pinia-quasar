@@ -49,7 +49,7 @@ export const useAuthStore = defineStore(
       me.value = null;
       Cookies.remove("authToken");
 
-      router.replace("/login");
+      router.replace("/");
     };
 
     return { login, errors, me, getMe, logout };

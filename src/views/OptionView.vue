@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <h4>STATE</h4>
+  <LayoutDashboard>
     <div>{{ name }}</div>
     <hr />
 
@@ -67,16 +66,18 @@
       @emitNewProp1="changeProp1"
       @emitNewProp1Child="changeProp1Child"
     />
-  </div>
+  </LayoutDashboard>
 </template>
 
 <script>
 import OptionChild from "@/components/OptionChild.vue";
+import LayoutDashboard from "@/components/LayoutDashboard.vue";
 
 export default {
   name: "OptionView",
   components: {
     OptionChild,
+    LayoutDashboard,
   },
   data() {
     return {

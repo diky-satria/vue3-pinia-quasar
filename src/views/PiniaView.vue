@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <h5>PINIA</h5>
-
+  <LayoutDashboard>
     <form @submit.prevent="submitForm">
       <input type="text" v-model="title" />
       <input type="text" v-model="content" />
@@ -29,15 +27,19 @@
         </tr>
       </tbody>
     </table>
-  </div>
+  </LayoutDashboard>
 </template>
 
 <script>
 import { useNoteStore } from "@/store/NoteStore";
 import { ref } from "vue";
+import LayoutDashboard from "@/components/LayoutDashboard.vue";
 
 export default {
   name: "PiniaView",
+  components: {
+    LayoutDashboard,
+  },
   setup() {
     let noteStore = useNoteStore();
 

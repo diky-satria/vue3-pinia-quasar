@@ -5,16 +5,12 @@ import OptionView from "../views/OptionView.vue";
 import CompositionView from "../views/CompositionView.vue";
 import PiniaView from "@/views/PiniaView.vue";
 import UserView from "@/views/UserView.vue";
+import CekView from "@/views/CekView.vue";
 import Cookies from "js-cookie";
 
 const routes = [
   {
     path: "/",
-    name: "home",
-    component: HomeView,
-  },
-  {
-    path: "/login",
     name: "login",
     component: LoginView,
     meta: { guest: true },
@@ -43,6 +39,11 @@ const routes = [
     component: UserView,
     meta: { auth: true },
   },
+  {
+    path: "/cek",
+    name: "cek",
+    component: CekView,
+  },
 ];
 
 const router = createRouter({
@@ -52,7 +53,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   if (to.meta.auth && !Cookies.get("authToken")) {
-    router.replace("/login");
+    router.replace("/");
   }
   if (to.meta.guest && Cookies.get("authToken")) {
     router.replace("/user");

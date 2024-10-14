@@ -1,21 +1,46 @@
 <template>
   <div>
-    <h4>Login</h4>
-    <form @submit.prevent="login">
-      <input type="text" v-model="email" /><br />
-      <div style="color: red" v-if="authStore.errors.email">
-        {{ authStore.errors.email }}
-      </div>
+    <div
+      style="
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <q-card class="my-card">
+        <q-card-section>
+          <div class="text-h6">Login</div>
+        </q-card-section>
+        <q-card-section>
+          <div style="max-width: 400px">
+            <q-form @submit.prevent="login" class="q-gutter-md">
+              <q-input
+                filled
+                v-model="email"
+                label="Email"
+                :error="!!authStore.errors.email"
+                :error-message="authStore.errors.email"
+              />
 
-      <input type="text" v-model="password" />
-      <br />
-      <div style="color: red" v-if="authStore.errors.password">
-        {{ authStore.errors.password }}
-      </div>
-      <button type="submit">Login</button>
-    </form>
+              <q-input
+                filled
+                type="password"
+                v-model="password"
+                label="Password"
+                :error="!!authStore.errors.password"
+                :error-message="authStore.errors.password"
+              />
 
-    <div>{{ authStore.me }}</div>
+              <div>
+                <q-btn label="Login" type="submit" color="primary" />
+              </div>
+            </q-form>
+          </div>
+        </q-card-section>
+      </q-card>
+    </div>
   </div>
 </template>
 
@@ -48,4 +73,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.my-card {
+  width: 100%;
+  max-width: 400px;
+}
+</style>
